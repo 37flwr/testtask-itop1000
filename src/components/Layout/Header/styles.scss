@@ -1,0 +1,46 @@
+#header {
+  width: 100vw;
+  height: 40px;
+
+  background-color: var(--background-additional);
+
+  .header-container {
+    height: 100%;
+    padding: 0 30px;
+
+    display: flex;
+    align-items: center;
+
+    .header-loading {
+      width: 100%;
+
+      display: flex;
+      justify-content: center;
+    }
+
+    .header-data {
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .header-currency-pair {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        font-size: 14px;
+      }
+      .currency-pair-bar {
+        height: 15px;
+        width: 1px;
+        background-color: var(--background-primary);
+
+        &:last-child {
+          display: none;
+        }
+      }
+    }
+  }
+}
