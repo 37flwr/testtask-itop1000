@@ -18,10 +18,10 @@ const Header = () => {
         {loading ?
           <span>Loading...</span>
         :
-          <div>
-            {memoizedRate?.filter((currencyPair) => currencyPair.ccy === 'USD' || currencyPair.ccy === 'EUR').map((currencyPair) => {
+          <div className='header-data'>
+            {memoizedRate?.map((currencyPair, idx) => {
               return (
-                <div>
+                <div key={idx} className='header-currency-pair'>
                   {currencyPair.ccy}/{currencyPair.base_ccy}  {currencyPair.sale.slice(0,5)}
                 </div>
               )
