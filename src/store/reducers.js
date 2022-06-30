@@ -1,8 +1,8 @@
-// import { combineReducers } from "redux";
+import { combineReducers } from "redux";
 
-// // price data
-// import CurrencyRate from './currency/reducer';
+// price data
+import CurrencyRate from './currency/reducer';
 
-// const rootReducer = combineReducers({Users, Apply, Positions})
+const rootReducer = combineReducers({ CurrencyRate })
 
-// export default rootReducer
+export default rootReducer

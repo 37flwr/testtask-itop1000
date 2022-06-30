@@ -1,10 +1,10 @@
-// import { all, fork } from 'redux-saga/effects';
+import { all, fork } from 'redux-saga/effects';
 
-// import currencySaga from './currency/saga'
+import currencySaga from './currency/saga'
 
-// export default function* rootSaga() {
-//     yield all([
-//         // currency
-//         fork(currencySaga),
-//     ])
-// }
+export default function* rootSaga() {
+    yield all([
+        // currency
+        fork(currencySaga),
+    ])
+}

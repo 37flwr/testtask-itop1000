@@ -1,9 +1,19 @@
-import axios from 'axios';
+import { useEffect, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCurrencyRate } from '../../../store/currency/actions'
 import './styles.scss';
 
 const Header = () => {
-  const price = axios.get('https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11').then((res) => {console.log(res)})
-  console.log(price);
+  const dispatch = useDispatch();
+  const { loading, currencyRate } = useSelector((state) => state.CurrencyRate);
+  const memoizedRate = useMemo(() => currencyRate, [currencyRate])
+
+  console.log(loading);
+
+  useEffect(() => {
+    dispatch(getCurrencyRate())
+  }, [dispatch])
+
   return (
     <div>Header</div>
   )
