@@ -1,8 +1,11 @@
 import { combineReducers } from "redux";
 
-// price data
+// currency rate
 import CurrencyRate from './currency/reducer';
 
-const rootReducer = combineReducers({ CurrencyRate })
+// exchange
+import Exchange from './exchange/reducer'
+
+const rootReducer = combineReducers({ CurrencyRate, Exchange })
 
 export default rootReducer
