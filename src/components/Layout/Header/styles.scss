@@ -16,10 +16,23 @@
 
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 10px;
 
       .header-currency-pair {
-        font-size: 15px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        font-size: 14px;
+      }
+      .currency-pair-bar {
+        height: 15px;
+        width: 1px;
+        background-color: var(--background-primary);
+
+        &:last-child {
+          display: none;
+        }
       }
     }
   }
