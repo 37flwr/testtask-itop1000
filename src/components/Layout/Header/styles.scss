@@ -11,6 +11,13 @@
     display: flex;
     align-items: center;
 
+    .header-loading {
+      width: 100%;
+
+      display: flex;
+      justify-content: center;
+    }
+
     .header-data {
       height: 100%;
 

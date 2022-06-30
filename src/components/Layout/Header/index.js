@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrencyRate } from '../../../store/currency/actions'
 import Loader from '../../Loader';
@@ -17,22 +17,24 @@ const Header = () => {
     <section id='header'>
       <div className='header-container'>
         {loading ?
-          <Loader />
+          <div className='header-loading'>
+            <Loader />
+          </div>
         :
           <div className='header-data'>
             {memoizedRate?.map((currencyPair, idx) => {
               return (
-                <>
-                <div key={idx} className='header-currency-pair'>
-                  <span>
-                    {currencyPair.ccy}/{currencyPair.base_ccy}
-                  </span>
-                  <span>
-                    {currencyPair.sale.slice(0,5)}
-                  </span>
-                </div>
-                <div className='currency-pair-bar' />
-                </>
+                <React.Fragment key={idx}>
+                  <div  className='header-currency-pair'>
+                    <span>
+                      {currencyPair.ccy}/{currencyPair.base_ccy}
+                    </span>
+                    <span>
+                      {currencyPair.sale.slice(0,5)}
+                    </span>
+                  </div>
+                  <div className='currency-pair-bar' />
+                </React.Fragment>
               )
             })}
           </div>
