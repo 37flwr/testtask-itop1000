@@ -2,11 +2,11 @@ import { put, takeEvery } from 'redux-saga/effects';
 
 import { getCurrencyRateSuccess } from './actions';
 import { GET_CURRENCY_RATE } from './actionTypes';
-import { sendApplyDoc } from '../../utils';
+import { getCurrencyRateDoc } from '../../utils';
 
 function* getCurrencyRateSaga({ payload }) {
     try {
-        const apply = yield sendApplyDoc(payload)
+        const apply = yield getCurrencyRateDoc(payload)
         yield put(getCurrencyRateSuccess(apply));
 
     } catch (error) {
