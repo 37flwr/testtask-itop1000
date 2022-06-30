@@ -8,14 +8,28 @@ const Header = () => {
   const { loading, currencyRate } = useSelector((state) => state.CurrencyRate);
   const memoizedRate = useMemo(() => currencyRate, [currencyRate])
 
-  console.log(loading);
-
   useEffect(() => {
     dispatch(getCurrencyRate())
   }, [dispatch])
 
   return (
-    <div>Header</div>
+    <section id='header'>
+      <div className='header-container'>
+        {loading ?
+          <span>Loading...</span>
+        :
+          <div>
+            {memoizedRate?.filter((currencyPair) => currencyPair.ccy === 'USD' || currencyPair.ccy === 'EUR').map((currencyPair) => {
+              return (
+                <div>
+                  {currencyPair.ccy}/{currencyPair.base_ccy}  {currencyPair.sale.slice(0,5)}
+                </div>
+              )
+            })}
+          </div>
+        }
+      </div>
+    </section>
   )
 }
 
