@@ -11,26 +11,27 @@ const ConvertFormContainer = ({
     },
     setValueBase,
     setValueConv,
+    currencyBase,
+    currencyConv,
     setCurrencyBase,
-    setCurrencyConv
-}) => {
-
-  return (
-    <Formik
-      enableReinitialize
-      initialValues={initialValues}
-      onSubmit={async (form) => {
-        const convertedCurr = await exchangeCurrency(form)
-        setValueBase(convertedCurr.valueBase)
-        setValueConv(convertedCurr.valueConv)
-        setCurrencyBase(form.currency_base)
-        setCurrencyConv(form.currency_conv)
-        }
+    setCurrencyConv,
+    valueBase,
+    valueConv
+}) => (
+  <Formik
+    enableReinitialize
+    initialValues={initialValues}
+    onSubmit={async (form) => {
+      const convertedCurr = await exchangeCurrency(form)
+      setValueBase(convertedCurr.valueBase)
+      setValueConv(convertedCurr.valueConv)
+      setCurrencyBase(form.currency_base)
+      setCurrencyConv(form.currency_conv)
       }
-    >
-        {({values}) => <ConvertForm values={values} />}
-    </Formik>
-  )
-}
+    }
+  >
+      {({values}) => <ConvertForm values={values} valueBase={valueBase} valueConv={valueConv} currencyBase={currencyBase} currencyConv={currencyConv} />}
+  </Formik>
+)
 
 export default ConvertFormContainer

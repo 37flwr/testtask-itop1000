@@ -1,78 +1,112 @@
 import { Form } from 'formik';
 import { useEffect } from 'react';
 import { FormField, SelectFormField } from '../../Formik/Fields'
+import DoubleArrowIcon from '../../../assets/DoubleArrow.svg'
 import './styles.scss'
 
-const formFields = () => [
+const formFieldsBase = (valueBase, currencyBase) => [
     {
         id: 'amount_base',
         name: 'amount_base',
         type: 'text',
         placeholder: '0',
-        show: true
     },
+    {
+        id: 'currency_base',
+        name: 'currency_base',
+        type: 'select',
+        as: 'select',
+        options: [
+            'usd',
+            'eur',
+            'uah'
+        ],
+        placeholder: 'Upload your photo',
+    },
+    {
+        id: 'line_base',
+        type: 'line'
+    },
+    {
+        id: 'abbr_base',
+        value: valueBase,
+        currency: currencyBase
+    } 
+]
+
+const formFieldsConv = (valueConv, currencyConv) => [
     {
         id: 'amount_conv',
         name: 'amount_conv',
         type: 'text',
         placeholder: '0',
-        show: true
-    },
-].filter(({show}) => show)
-
-const selectFormFields = () => [
-    {
-        id: 'currency_base',
-        name: 'currency_base',
-        as: 'select',
-        options: [
-            'usd',
-            'eur',
-            'uah'
-        ],
-        placeholder: 'Upload your photo',
-        show: true
     },
     {
         id: 'currency_conv',
         name: 'currency_conv',
+        type: 'select',
         as: 'select',
         options: [
+            'uah',
             'usd',
-            'eur',
-            'uah'
+            'eur'
         ],
         placeholder: 'Upload your photo',
-        show: true
     },
-].filter(({show}) => show)
+    {
+        id: 'line_conv',
+        type: 'line'
+    },
+    {
+        id: 'abbr_conv',
+        value: valueConv,
+        currency: currencyConv,
+    } 
+]
 
-const renderFormField = ({ show, ...fieldProps }) => (
-    <FormField key={fieldProps.id} {...fieldProps} />
-)
+const renderFormFields = ({...fieldProps}) => {
+    return (
+        fieldProps.type === 'text' ?
+            <FormField key={fieldProps.id} {...fieldProps} />
+        :
+            fieldProps.type === 'select' ?
+                <SelectFormField key={fieldProps.id} {...fieldProps} />
+            :
+                fieldProps.type === 'line' ?
+                    <div key={fieldProps.id} className='convert-form-line'/>
+                :
+                    fieldProps.value !== null ? 
+                        <span key={fieldProps.id} >
+                            {fieldProps.value} {fieldProps.currency.toUpperCase()}
+                        </span>
+                    :
+                        <span key={fieldProps.id} >
+                            0 {fieldProps.currency.toUpperCase()}
+                        </span>
+    )
+}
 
-const renderSelectFormField = ({ show, ...fieldProps }) => (
-    <SelectFormField key={fieldProps.id} {...fieldProps} />
-)
 
-const ConvertForm = ({ values }) => {
+const ConvertForm = ({ values, valueBase, valueConv, currencyBase, currencyConv }) => {
     useEffect(() => {
         async function handleChange() {
             document.getElementById('convert-form-submit').click()
         }
         setTimeout(handleChange, 250)
     }, [values]);
+
     return (
         <Form className="convert-form" id='convert-form'>
-            <div className='convert-inputs-container'>
-                {formFields({values}).map(renderFormField)}
+            <div className='convert-form-group'>
+                {formFieldsBase(valueConv, currencyBase).map(renderFormFields)}
             </div>
-            <div className='convert-select-container'>
-                {selectFormFields({values}).map(renderSelectFormField)}
+            <img src={DoubleArrowIcon} alt="" className='convert-form-icon'/>
+            <div className='convert-form-group'>
+                {formFieldsConv(valueBase, currencyConv).map(renderFormFields)}
             </div>
 
             <button id='convert-form-submit' type='submit'>
-                asd
+                Submit
             </button>
         </Form>
     )

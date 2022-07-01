@@ -15,18 +15,14 @@ const HomePage = () => {
         </div>
         <ConvertFormContainer 
           setValueBase={setValueBase} 
-          setValueConv={setValueConv} 
+          setValueConv={setValueConv}
+          currencyBase={currencyBase}
+          currencyConv={currencyConv}
           setCurrencyBase={setCurrencyBase} 
           setCurrencyConv={setCurrencyConv} 
+          valueBase={valueBase}
+          valueConv={valueConv}
         />
-        <div className='convert-output-container'>
-          <span className='convert-output'>
-            {valueConv ? `${valueConv} ${currencyConv}` : 0}
-          </span>
-          <span className='convert-output'>
-            {valueBase ? `${valueBase} ${currencyBase}` : 0}
-          </span>
-        </div>
       </div>
     </section>
   )

@@ -1,5 +1,5 @@
 .input-container {
-  width: 200px;
+  width: 300px;
 
   position: relative;
   display: flex;
@@ -15,15 +15,15 @@
     cursor: default;
   }
 
-  .field {
-    width: calc(100% - 20px);
-    height: 54px;
-    font-size: 16px;
+  .input-field {
+    width: calc(100% - 14px);
+    height: 21px;
+    font-size: 14px;
 
-    padding-left: 16px;
+    padding-left: 10px;
 
-    border-radius: 4px;
-    border: 1px solid var(--background-additional);
+    border-radius: 3px;
+    border: 1px solid black;
     touch-action: none;
   }
 

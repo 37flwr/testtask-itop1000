@@ -2,11 +2,7 @@
   width: 100vw;
   height: calc(100vh - 40px);
 
-  display: flex;
-  justify-content: center;
-
   .home-page-container {
-    width: 70vw;
     padding: 75px 125px;
     display: flex;
     flex-direction: column;
@@ -25,8 +21,9 @@
       justify-content: space-between;
 
       .convert-output {
-        text-align: right;
-        width: 200px;
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
       }
     }
   }

@@ -28,8 +28,8 @@ const SelectFormField = ({
     >
         {options.map((option, idx) => {
             return (
-                <option key={idx}>
-                    {option}
+                <option key={idx} className='select-option'>
+                    {option.toUpperCase()}
                 </option>
             )
         })}

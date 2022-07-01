@@ -7,7 +7,6 @@ import { getCurrencyRateDoc } from '../../utils';
 function* getCurrencyRateSaga({ payload }) {
     try {
         const rate = yield getCurrencyRateDoc(payload)
-        console.log(rate);
         yield put(getCurrencyRateSuccess(rate));
 
     } catch (error) {

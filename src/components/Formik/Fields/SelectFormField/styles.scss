@@ -1,7 +1,11 @@
 .select-container {
-  width: 200px;
+  width: 300px;
 
   select {
     width: 100%;
+    height: 25px;
+    border: solid 1px black;
+    border-radius: 3px;
+    padding-left: 10px;
   }
 }
