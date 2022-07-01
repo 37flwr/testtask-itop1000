@@ -57,7 +57,10 @@ const renderSelectFormField = ({ show, ...fieldProps }) => (
 
 const ConvertForm = ({ values }) => {
     useEffect(() => {
-        document.getElementById('convert-form-submit').click()
+        async function handleChange() {
+            document.getElementById('convert-form-submit').click()
+        }
+        setTimeout(handleChange, 250)
     }, [values]);
     return (
         <Form className="convert-form" id='convert-form'>

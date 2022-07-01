@@ -1,7 +1,6 @@
 import { Formik } from 'formik'
 import ConvertForm from './ConvertForm';
 import { exchangeCurrency } from '../../../utils';
-// import getValidationSchema from './convertFormValidationSchema';
 
 const ConvertFormContainer = ({
     initialValues = {
@@ -15,6 +14,7 @@ const ConvertFormContainer = ({
     setCurrencyBase,
     setCurrencyConv
 }) => {
+
   return (
     <Formik
       enableReinitialize
