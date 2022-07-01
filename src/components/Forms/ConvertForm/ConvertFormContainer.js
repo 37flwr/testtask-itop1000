@@ -8,8 +8,8 @@ const ConvertFormContainer = ({
     initialValues = {
         currency_base: 'usd',
         currency_conv: 'uah',
-        amount_base: 0,
-        amount_conv: 0,
+        amount_base: '',
+        amount_conv: '',
     },
 }) => {
   const dispatch = useDispatch()

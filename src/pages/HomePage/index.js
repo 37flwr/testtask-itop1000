@@ -5,8 +5,7 @@ import './styles.scss';
 
 const HomePage = () => {
   const { loading, exchange } = useSelector((state) => state.Exchange)
-  const memoizedExchange = useMemo(() => exchange, [exchange])
-  console.log(memoizedExchange);
+  const { value_base, value_conv } = useMemo(() => exchange, [exchange])
   return (
     <section id='home-page'>
       <div className='home-page-container'>
@@ -14,6 +13,15 @@ const HomePage = () => {
           Converter
         </div>
         <ConvertFormContainer />
+        <div>
+          <span>
+            {value_base ? value_base : 0}
+          </span>
+          <br/>
+          <span>
+            {value_conv ? value_conv : 0}
+          </span>
+        </div>
       </div>
     </section>
   )

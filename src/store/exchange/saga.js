@@ -7,7 +7,7 @@ import { exchangeCurrency } from '../../utils';
 function* sendExchangeSaga({ payload }) {
     try {
         const exchange = yield exchangeCurrency(payload)
-        yield put(sendExchangeSuccess(exchange.data.result));
+        yield put(sendExchangeSuccess(exchange));
 
     } catch (error) {
         console.log(error);

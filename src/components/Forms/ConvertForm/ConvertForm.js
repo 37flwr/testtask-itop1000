@@ -7,14 +7,14 @@ const formFields = () => [
         id: 'amount_base',
         name: 'amount_base',
         type: 'text',
-        placeholder: 'Amount',
+        placeholder: '0',
         show: true
     },
     {
         id: 'amount_conv',
         name: 'amount_conv',
         type: 'text',
-        placeholder: 'Amount',
+        placeholder: '0',
         show: true
     },
 ].filter(({show}) => show)
@@ -60,7 +60,7 @@ const ConvertForm = ({ values }) => (
 
         {selectFormFields({values}).map(renderSelectFormField)}
 
-        <button type='submit'>
+        <button id='convert-form-submit' type='submit'>
             asd
         </button>
     </Form>
