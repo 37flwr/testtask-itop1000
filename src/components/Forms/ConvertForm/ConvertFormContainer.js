@@ -1,7 +1,6 @@
 import { Formik } from 'formik'
-import { useDispatch } from 'react-redux';
 import ConvertForm from './ConvertForm';
-import { sendExchange } from '../../../store/actions'
+import { exchangeCurrency } from '../../../utils';
 // import getValidationSchema from './convertFormValidationSchema';
 
 const ConvertFormContainer = ({
@@ -11,14 +10,17 @@ const ConvertFormContainer = ({
         amount_base: '',
         amount_conv: '',
     },
+    setValueBase,
+    setValueConv
 }) => {
-  const dispatch = useDispatch()
   return (
     <Formik
         enableReinitialize
         initialValues={initialValues}
-        onSubmit={(form) => {
-          dispatch(sendExchange(form))
+        onSubmit={async (form) => {
+          const convertedCurr = await exchangeCurrency(form)
+          setValueBase(convertedCurr.valueBase)
+          setValueConv(convertedCurr.valueConv)
           }
         }
     >

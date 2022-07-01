@@ -1,25 +1,25 @@
-import { useMemo } from 'react';
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
 import ConvertFormContainer from '../../components/Forms/ConvertForm/ConvertFormContainer';
 import './styles.scss';
 
 const HomePage = () => {
-  const { loading, exchange } = useSelector((state) => state.Exchange)
-  const { value_base, value_conv } = useMemo(() => exchange, [exchange])
+  const [valueBase, setValueBase] = useState(0)
+  const [valueConv, setValueConv] = useState(0)
   return (
     <section id='home-page'>
       <div className='home-page-container'>
         <div className='page-heading'>
           Converter
         </div>
-        <ConvertFormContainer />
+        <ConvertFormContainer setValueBase={setValueBase} setValueConv={setValueConv} />
         <div>
+          <br/>
           <span>
-            {value_base ? value_base : 0}
+            {valueConv ? valueConv : 0}
           </span>
           <br/>
           <span>
-            {value_conv ? value_conv : 0}
+            {valueBase ? valueBase : 0}
           </span>
         </div>
       </div>
