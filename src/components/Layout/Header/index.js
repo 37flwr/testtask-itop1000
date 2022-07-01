@@ -30,7 +30,7 @@ const Header = () => {
                       {currencyPair.ccy}/{currencyPair.base_ccy}
                     </span>
                     <span>
-                      {currencyPair.sale.slice(0,5)}
+                      {currencyPair.buy.slice(0,5)}
                     </span>
                   </div>
                   <div className='currency-pair-bar' />

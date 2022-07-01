@@ -1,4 +1,5 @@
 import { Form } from 'formik';
+import { useEffect } from 'react';
 import { FormField, SelectFormField } from '../../Formik/Fields'
 import './styles.scss'
 
@@ -54,16 +55,24 @@ const renderSelectFormField = ({ show, ...fieldProps }) => (
     <SelectFormField key={fieldProps.id} {...fieldProps} />
 )
 
-const ConvertForm = ({ values }) => (
-    <Form className="apply-form" id='apply-form'>
-        {formFields({values}).map(renderFormField)}
+const ConvertForm = ({ values }) => {
+    useEffect(() => {
+        document.getElementById('convert-form-submit').click()
+    }, [values]);
+    return (
+        <Form className="convert-form" id='convert-form'>
+            <div className='convert-inputs-container'>
+                {formFields({values}).map(renderFormField)}
+            </div>
+            <div className='convert-select-container'>
+                {selectFormFields({values}).map(renderSelectFormField)}
+            </div>
 
-        {selectFormFields({values}).map(renderSelectFormField)}
-
-        <button id='convert-form-submit' type='submit'>
-            asd
-        </button>
-    </Form>
-)
+            <button id='convert-form-submit' type='submit'>
+                asd
+            </button>
+        </Form>
+    )
+}
 
 export default ConvertForm

@@ -1,0 +1,19 @@
+.convert-form {
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .convert-inputs-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .convert-select-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #convert-form-submit {
+    display: none;
+  }
+}

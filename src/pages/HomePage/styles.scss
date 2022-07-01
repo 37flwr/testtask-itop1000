@@ -4,10 +4,24 @@
 
   .home-page-container {
     padding: 75px 125px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
     .page-heading {
-      padding-left: 50px;
+      text-align: center;
       font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .convert-output-container {
+      display: flex;
+      justify-content: space-between;
+
+      .convert-output {
+        text-align: right;
+        width: 200px;
+      }
     }
   }
 }
