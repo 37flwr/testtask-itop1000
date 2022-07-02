@@ -1,0 +1,16 @@
+.header-currency-pair {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  font-size: 14px;
+}
+.currency-pair-bar {
+  height: 15px;
+  width: 1px;
+  background-color: var(--background-primary);
+
+  &:last-child {
+    display: none;
+  }
+}

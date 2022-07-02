@@ -1,7 +1,8 @@
-import React, { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrencyRate } from '../../../store/currency/actions'
 import Loader from '../../Loader';
+import CurrencyPair from './components/CurrencyPair';
 import './styles.scss';
 
 const Header = () => {
@@ -21,23 +22,16 @@ const Header = () => {
             <Loader />
           </div>
         :
-          <div className='header-data'>
-            {memoizedRate?.map((currencyPair, idx) => {
-              return (
-                <React.Fragment key={idx}>
-                  <div  className='header-currency-pair'>
-                    <span>
-                      {currencyPair.ccy}/{currencyPair.base_ccy}
-                    </span>
-                    <span>
-                      {currencyPair.buy.slice(0,5)}
-                    </span>
-                  </div>
-                  <div className='currency-pair-bar' />
-                </React.Fragment>
-              )
-            })}
-          </div>
+          <>
+            <div className='header-rates'>
+              {memoizedRate?.map((currencyPair, idx) => (
+                  <CurrencyPair currencyPair={currencyPair} idx={idx} />
+                ))}
+            </div>
+            <div className='header-logo'>
+              Converter
+            </div>
+          </>
         }
       </div>
     </section>

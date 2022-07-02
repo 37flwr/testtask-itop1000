@@ -6,41 +6,34 @@
 
   .header-container {
     height: 100%;
-    padding: 0 30px;
 
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 
     .header-loading {
-      width: 100%;
+      height: 40px;
+      grid-column-start: 2;
 
       display: flex;
       justify-content: center;
+      align-items: center;
     }
 
-    .header-data {
-      height: 100%;
-
+    .header-rates {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
 
-      .header-currency-pair {
-        display: flex;
-        align-items: center;
-        gap: 4px;
+      grid-column-start: 1;
+    }
 
-        font-size: 14px;
-      }
-      .currency-pair-bar {
-        height: 15px;
-        width: 1px;
-        background-color: var(--background-primary);
+    .header-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-        &:last-child {
-          display: none;
-        }
-      }
+      grid-column-start: 2;
     }
   }
 }
