@@ -1,0 +1,49 @@
+.convert-form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .convert-form-icon {
+    margin-top: -20px;
+    transform: rotate(90deg);
+    width: 30px;
+    opacity: 0.2;
+  }
+
+  .convert-form-line {
+    width: 100%;
+    height: 1px;
+    border-radius: 50%;
+    background-color: black;
+  }
+
+  .convert-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .convert-inputs-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .convert-select-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #convert-form-submit {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .convert-form {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+
+    .convert-form-icon {
+      transform: rotate(0);
+    }
+  }
+}

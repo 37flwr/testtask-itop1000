@@ -1,0 +1,30 @@
+#home-page {
+  width: 100vw;
+  height: calc(100vh - 40px);
+
+  .home-page-container {
+    padding: 75px 125px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .page-heading {
+      width: 100%;
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .convert-output-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      .convert-output {
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}

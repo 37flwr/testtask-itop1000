@@ -1,0 +1,38 @@
+.input-container {
+  width: 300px;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .input-label {
+    width: 100%;
+    float: left;
+    margin-left: 10px;
+    color: rgb(25, 25, 25);
+
+    cursor: default;
+  }
+
+  .input-field {
+    width: calc(100% - 14px);
+    height: 21px;
+    font-size: 14px;
+
+    padding-left: 10px;
+
+    border-radius: 3px;
+    border: 1px solid black;
+    touch-action: none;
+  }
+
+  .input-legend {
+    width: 100%;
+    float: left;
+    margin-left: 10px;
+
+    color: var(--background-additional);
+    font-size: 12px;
+  }
+}

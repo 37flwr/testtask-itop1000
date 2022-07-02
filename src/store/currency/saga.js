@@ -10,7 +10,7 @@ function* getCurrencyRateSaga({ payload }) {
         yield put(getCurrencyRateSuccess(rate));
 
     } catch (error) {
-        console.log(error);
+        console.log(error.message);
     }
 }
 
