@@ -1,5 +1,5 @@
-import { Field } from 'formik';
-
+import { ErrorMessage, Field } from 'formik';
+import FormikError from '../../FormikError';
 import './styles.scss';
 
 const FormField = ({
@@ -25,6 +25,7 @@ const FormField = ({
         className='input-field'
     />
     {legend && <span className='input-legend'>{legend}</span>}
+    <ErrorMessage component={FormikError} name={name} className={errorCustomClassName} />
   </div>
   );
 

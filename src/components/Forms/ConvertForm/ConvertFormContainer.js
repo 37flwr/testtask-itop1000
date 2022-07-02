@@ -1,5 +1,6 @@
 import { Formik } from 'formik'
 import ConvertForm from './ConvertForm';
+import getValidationSchema from './convertFormValidationSchema';
 import { exchangeCurrency } from '../../../utils';
 
 const ConvertFormContainer = ({
@@ -21,6 +22,7 @@ const ConvertFormContainer = ({
   <Formik
     enableReinitialize
     initialValues={initialValues}
+    validationSchema={getValidationSchema}
     onSubmit={async (form) => {
       const convertedCurr = await exchangeCurrency(form)
       setValueBase(convertedCurr.valueBase)

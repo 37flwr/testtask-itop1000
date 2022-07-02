@@ -5,16 +5,16 @@ import './styles.scss';
 const FieldError = ({ children, className }) => {
     if (children && typeof children !== 'string') {
         return (
-        <div className={`error-message my-0 mx-2 ${className}`}>
+        <div className={`error-message ${className}`}>
             {Object.keys(children).map((fieldKey, idx) => (
-            <div key={`error-${idx} nunito`}>
+            <div key={`error-${idx}`}>
                 {fieldKey}: {JSON.stringify(children[fieldKey])}
             </div>
             ))}
         </div>
         );
     }
-    return <span className={`error-message nunito ${className}`}>*{children}</span>;
+    return <span className={`error-message ${className}`}>*{children}</span>;
 };
 
 FieldError.propTypes = {

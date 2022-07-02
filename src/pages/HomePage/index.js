@@ -7,6 +7,7 @@ const HomePage = () => {
   const [valueConv, setValueConv] = useState(0)
   const [currencyBase, setCurrencyBase] = useState('usd')
   const [currencyConv, setCurrencyConv] = useState('uah')
+  
   return (
     <section id='home-page'>
       <div className='home-page-container'>
